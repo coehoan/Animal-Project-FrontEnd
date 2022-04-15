@@ -17,11 +17,11 @@
     </div>
     <div class="form-group mt-3">
       <label>이메일</label>
-      <input id="email" type="email" class="form-control mt-3" placeholder="name@example.com" required>
+      <input id="email" type="email" class="form-control" placeholder="name@example.com" required>
     </div>
     <div class="form-group mt-3">
       <label>성별</label>
-      <select id="sex" class="form-select mt-3" required>
+      <select id="sex" class="form-select" required>
         <option selected>성별</option>
         <option value="male">남자</option>
         <option value="female">여자</option>
@@ -30,7 +30,7 @@
     </div>
     <div class="form-group mt-3">
       <label>주소</label>
-      <input id="addr" type="text" class="form-control mt-3" minlength="10" data-v-message="Please enter minimum 10 characters"
+      <input id="addr" type="text" class="form-control" minlength="10" data-v-message="Please enter minimum 10 characters"
         required>
     </div>
     <div class="form-group mt-5">
@@ -39,6 +39,41 @@
   </form>
   <!-- 회원가입 폼 끝 -->
 </div>
+
+<script>
+  $("#btn-join").click(() => {
+      join();
+  });
+
+  async function join() {
+
+      let userDto = {
+          username: $("#username").val(),
+          password: $("#password").val(),
+          email: $("#email").val(),
+          sex:$("#sex").val(),
+          addr: $("#addr").val()
+      }
+      let response = await fetch("/api/join", {
+        method: "POST",
+        body: JSON.stringify(userDto),
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        }
+      });
+      
+      let responseParse = await response.json();
+      
+      console.log(responseParse.code)
+      if (responseParse.code == 1) {
+          alert("회원가입완료");
+          location.href = "/loginForm";
+      } else {
+          alert('회원가입실패');
+      }
+  }
+</script>
+
 <!-- 컨테이너 끝 -->
 
 {{>/layout/footer}}

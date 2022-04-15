@@ -11,15 +11,15 @@ public class AnimalController {
         return "/main/mainForm";
     }
 
-    @GetMapping("/main/joinForm")
-    public String join() {
-        return "/main/joinForm";
-    }
+    // @GetMapping("/main/joinForm")
+    // public String join() {
+    // return "/main/joinForm";
+    // }
 
-    @GetMapping("/main/loginForm")
-    public String login() {
-        return "/main/loginForm";
-    }
+    // @GetMapping("/main/loginForm")
+    // public String login() {
+    // return "/main/loginForm";
+    // }
 
     @GetMapping("/animal/animalList")
     public String animal() {
