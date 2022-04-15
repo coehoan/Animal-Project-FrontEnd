@@ -1,14 +1,12 @@
 package site.metacoding.animalprojectfrontend.web.api;
 
-import javax.persistence.PostRemove;
-
 import org.springframework.stereotype.Controller;
 
 import lombok.RequiredArgsConstructor;
-import site.metacoding.animalprojectfrontend.domain.post.PostRepository;
+import site.metacoding.animalprojectfrontend.service.PostService;
 
 @RequiredArgsConstructor
 @Controller
 public class PostApiController {
-    private final PostRepository postRepository;
+    private final PostService postService;
 }

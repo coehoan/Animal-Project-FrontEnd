@@ -5,10 +5,10 @@ import javax.persistence.PostRemove;
 import org.springframework.stereotype.Controller;
 
 import lombok.RequiredArgsConstructor;
-import site.metacoding.animalprojectfrontend.domain.post.PostRepository;
+import site.metacoding.animalprojectfrontend.service.PostService;
 
 @RequiredArgsConstructor
 @Controller
 public class PostController {
-    private final PostRepository postRepository;
+    private final PostService postservice;
 }

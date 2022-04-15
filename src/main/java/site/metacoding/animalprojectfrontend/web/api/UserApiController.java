@@ -9,4 +9,5 @@ import site.metacoding.animalprojectfrontend.service.UserService;
 @Controller
 public class UserApiController {
     private final UserService userService;
+
 }
