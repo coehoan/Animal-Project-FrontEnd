@@ -6,20 +6,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AnimalController {
 
-    // @GetMapping("/")
-    // public String main() {
-    // return "/main/mainForm";
-    // }
+    @GetMapping("/")
+    public String main() {
+        return "/main/mainForm";
+    }
 
-    // @GetMapping("/main/joinForm")
-    // public String join() {
-    // return "/main/joinForm";
-    // }
+    @GetMapping("/main/joinForm")
+    public String join() {
+        return "/main/joinForm";
+    }
 
-    // @GetMapping("/main/loginForm")
-    // public String login() {
-    // return "/main/loginForm";
-    // }
+    @GetMapping("/main/loginForm")
+    public String login() {
+        return "/main/loginForm";
+    }
 
     @GetMapping("/animal/animalList")
     public String animal() {
@@ -65,5 +65,5 @@ public class AnimalController {
     public String kara() {
         return "/withus/kara";
     }
-
+    // ===================Post====================//
 }
