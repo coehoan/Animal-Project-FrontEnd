@@ -38,7 +38,7 @@ public class User {
     private String email;
 
     @Column(nullable = true, length = 30)
-    private String male;
+    private String sex;
 
     @Column(nullable = false, length = 300)
     private String addr; // API 주소 라이브러리 사용할 예정

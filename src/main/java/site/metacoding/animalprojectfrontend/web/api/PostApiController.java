@@ -1,4 +1,4 @@
-package site.metacoding.animalprojectfrontend.web;
+package site.metacoding.animalprojectfrontend.web.api;
 
 import javax.persistence.PostRemove;
 
@@ -9,6 +9,6 @@ import site.metacoding.animalprojectfrontend.domain.post.PostRepository;
 
 @RequiredArgsConstructor
 @Controller
-public class PostController {
+public class PostApiController {
     private final PostRepository postRepository;
 }
