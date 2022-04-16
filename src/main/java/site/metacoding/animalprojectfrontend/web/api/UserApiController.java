@@ -1,5 +1,6 @@
 package site.metacoding.animalprojectfrontend.web.api;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,10 +27,13 @@ public class UserApiController {
     }
 
     @PostMapping("/login")
-    public ResponseDto<String> login(@RequestBody LoginDto loginDto) {
+    public ResponseDto<String> login(@RequestBody LoginDto loginDto, HttpServletResponse response) {
         User userEntity = userService.로그인(loginDto);
         if (userEntity == null) {
             return new ResponseDto<String>(-1, "로그인실패", null);
+        }
+        if (loginDto.getRemember().equals("on")) {
+            response.addHeader("Set-Cookie", "remember=" + loginDto.getUsername() + "; path=/");
         }
         session.setAttribute("principal", userEntity);
         return new ResponseDto<String>(1, "로그인성공", null);
