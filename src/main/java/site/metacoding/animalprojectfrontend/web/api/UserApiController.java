@@ -31,6 +31,7 @@ public class UserApiController {
         if (userEntity == null) {
             return new ResponseDto<String>(-1, "로그인실패", null);
         }
+        session.setAttribute("principal", userEntity);
         return new ResponseDto<String>(1, "로그인성공", null);
     }
 }
