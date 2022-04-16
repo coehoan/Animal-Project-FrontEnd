@@ -1,4 +1,4 @@
-package site.metacoding.animalprojectfrontend.domain.handler;
+package site.metacoding.animalprojectfrontend.config.handler;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

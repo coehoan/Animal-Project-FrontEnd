@@ -1,4 +1,4 @@
-package site.metacoding.animalprojectfrontend.domain.user;
+package site.metacoding.animalprojectfrontend.config.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import site.metacoding.animalprojectfrontend.domain.user.User;
+import site.metacoding.animalprojectfrontend.config.user.User;
 import site.metacoding.animalprojectfrontend.service.UserService;
 import site.metacoding.animalprojectfrontend.web.api.dto.ResponseDto;
 import site.metacoding.animalprojectfrontend.web.api.dto.user.JoinDto;

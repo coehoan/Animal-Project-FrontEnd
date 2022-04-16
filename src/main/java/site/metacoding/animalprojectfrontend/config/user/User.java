@@ -1,4 +1,4 @@
-package site.metacoding.animalprojectfrontend.domain.user;
+package site.metacoding.animalprojectfrontend.config.user;
 
 import java.time.LocalDateTime;
 

@@ -1,4 +1,4 @@
-package site.metacoding.animalprojectfrontend.domain.post;
+package site.metacoding.animalprojectfrontend.config.post;
 
 import java.time.LocalDateTime;
 
@@ -20,7 +20,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import site.metacoding.animalprojectfrontend.domain.user.User;
+import site.metacoding.animalprojectfrontend.config.user.User;
 
 @AllArgsConstructor
 @NoArgsConstructor

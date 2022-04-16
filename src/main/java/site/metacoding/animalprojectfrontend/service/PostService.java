@@ -5,7 +5,7 @@ import javax.persistence.PostRemove;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import site.metacoding.animalprojectfrontend.domain.post.PostRepository;
+import site.metacoding.animalprojectfrontend.config.post.PostRepository;
 
 @RequiredArgsConstructor
 @Service
