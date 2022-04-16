@@ -5,7 +5,7 @@
   <hr>
 
   <!-- 로그인 폼 시작 -->
-  <form class="m_auth_box" novalidate>
+  <form class="m_auth_box">
     <div class="form-group">
       <label>아이디</label>
       <input id="username" type="text" class="form-control mt-3" required>
@@ -31,7 +31,6 @@
     login();
 });
 
-
 async function login() {
   let checked = $('#remember').is(':checked');
   let loginDto = {
@@ -47,6 +46,7 @@ async function login() {
           'Content-Type': 'application/json; charset=utf-8'
       },
   });
+
   let responseParse = await response.json();
   console.log(responseParse);
 
