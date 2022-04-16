@@ -1,4 +1,4 @@
-package site.metacoding.animalprojectfrontend.domain.user;
+package site.metacoding.animalprojectfrontend.config.user;
 
 import java.time.LocalDateTime;
 
@@ -26,7 +26,6 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-<<<<<<< HEAD
     private Integer id; // pk
 
     @Column(unique = true, nullable = false, length = 12)
@@ -50,27 +49,3 @@ public class User {
     private LocalDateTime updateDate;// DB
 
 }
-=======
-    private Integer id;
-
-    @Column(unique = true, nullable = false, length = 30)
-    private String username;
-
-    @Column(nullable = false, length = 30)
-    private String password;
-
-    @Column(nullable = false, length = 30)
-    private String email;
-
-    @Column(nullable = true, length = 30)
-    private String sex;
-
-    @Column(nullable = false, length = 300)
-    private String addr; // API 주소 라이브러리 사용할 예정
-
-    @CreatedDate
-    private LocalDateTime createDate;
-    @LastModifiedDate
-    private LocalDateTime updateDate;
-}
->>>>>>> fb00b36902b41162eae1f5fb9b170ac49922f8c4
