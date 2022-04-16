@@ -3,10 +3,7 @@ package site.metacoding.animalprojectfrontend.web.api.dto.user;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-<<<<<<< HEAD
 import site.metacoding.animalprojectfrontend.domain.user.User;
-=======
->>>>>>> fb00b36902b41162eae1f5fb9b170ac49922f8c4
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +13,6 @@ public class JoinDto {
     private String password;
     private String email;
     private String male;
-<<<<<<< HEAD
     private String addr;
 
     public User toEntity() {
@@ -28,6 +24,4 @@ public class JoinDto {
         user.setAddr(this.addr);
         return user;
     }
-=======
->>>>>>> fb00b36902b41162eae1f5fb9b170ac49922f8c4
 }
