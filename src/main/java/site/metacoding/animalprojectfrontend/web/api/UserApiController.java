@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import site.metacoding.animalprojectfrontend.config.user.User;
+import site.metacoding.animalprojectfrontend.domain.user.User;
 import site.metacoding.animalprojectfrontend.service.UserService;
 import site.metacoding.animalprojectfrontend.web.api.dto.ResponseDto;
 import site.metacoding.animalprojectfrontend.web.api.dto.user.JoinDto;
@@ -35,11 +35,7 @@ public class UserApiController {
         if (loginDto.getRemember().equals("on")) {
             response.addHeader("Set-Cookie", "remember=" + loginDto.getUsername() + "; path=/");
         }
-<<<<<<< HEAD
         session.setAttribute("log", userEntity);
-=======
-        session.setAttribute("principal", userEntity);
->>>>>>> d8f43c6a07498ed29efabd2a10c9685b9f85336c
         return new ResponseDto<String>(1, "로그인성공", null);
     }
 }

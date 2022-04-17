@@ -20,7 +20,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import site.metacoding.animalprojectfrontend.config.user.User;
+import site.metacoding.animalprojectfrontend.domain.user.User;
 
 @AllArgsConstructor
 @NoArgsConstructor
