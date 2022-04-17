@@ -4,8 +4,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
+<<<<<<< HEAD
 import site.metacoding.animalprojectfrontend.config.user.User;
 import site.metacoding.animalprojectfrontend.config.user.UserRepository;
+=======
+import site.metacoding.animalprojectfrontend.domain.user.User;
+import site.metacoding.animalprojectfrontend.domain.user.UserRepository;
+>>>>>>> d8f43c6a07498ed29efabd2a10c9685b9f85336c
 import site.metacoding.animalprojectfrontend.web.api.dto.user.JoinDto;
 import site.metacoding.animalprojectfrontend.web.api.dto.user.LoginDto;
 
