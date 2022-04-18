@@ -14,4 +14,5 @@ public class PostService {
     public void 글쓰기(Post post) {
         postRepository.save(post);
     }
+
 }

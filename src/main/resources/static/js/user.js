@@ -4,7 +4,7 @@ $("#btn-login").click(() => {
 });
 
 //회원가입
-    $("#btn-join").click(() => {
+$("#btn-join").click(() => {
     join();
 });
 
@@ -20,30 +20,39 @@ function usernameRemember() {
 usernameRemember();
 
 async function login() {
-  let checked = $('#remember').is(':checked');
-  let loginDto = {
-      username: $("#username").val(),
-      password: $("#password").val(),
-      remember: checked ? "on" : "off"
-  }
+    let checked = $('#remember').is(':checked');
+    let loginDto = {
+        username: $("#username").val(),
+        password: $("#password").val(),
+        remember: checked ? "on" : "off"
+    }
 
-  let response = await fetch("/login", {
-      method: "POST",
-      body: JSON.stringify(loginDto),
-      headers: {
-          'Content-Type': 'application/json; charset=utf-8'
-      },
-  });
+    let response = await fetch("/login", {
+        method: "POST",
+        body: JSON.stringify(loginDto),
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+    });
 
-  let responseParse = await response.json();
-  console.log(responseParse);
+    let responseParse = await response.json();
+    console.log(responseParse);
 
+<<<<<<< HEAD
   if (responseParse.code == 1) {
     //   alert("로그인완료");
       location.href = "/";
   } else {
       alert('아이디 혹은 비밀번호가 틀렸습니다.');
   }
+=======
+    if (responseParse.code == 1) {
+        //   alert("로그인완료");
+        location.href = "/";
+    } else {
+        alert('아이디 혹은 비밀번호가 틀렸습니다.');
+    }
+>>>>>>> b3e058e50a0a3e220806d9dc25aadbf81dfbe573
 }
 //회원가입
 async function join() {
