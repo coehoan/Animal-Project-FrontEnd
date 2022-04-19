@@ -88,20 +88,20 @@
         </tr>
       </thead>
       <tbody>
+        {{#shelterlistPage.content}}
         <tr>
-          {{#shelterlistPage.content}}
           <div class="d-flex m_text_align_center">
             <th scope="row" style="vertical-align: middle;">{{#id}}{{id}}{{/id}}{{^id}}정보없음{{/id}}</th>
             <td style="vertical-align: middle;">{{#orgNm}}{{orgNm}}{{/orgNm}}{{^orgNm}}정보없음{{/orgNm}}</td>
             <td style="vertical-align: middle;">{{#careNm}}{{careNm}}{{/careNm}}{{^careNm}}정보없음{{/careNm}}</td>
             <td style="vertical-align: middle;">{{#jibunAddr}}{{jibunAddr}}{{/jibunAddr}}{{^jibunAddr}}정보없음{{/jibunAddr}}</td>
             <td style="vertical-align: middle;">{{#weekOprStime}}{{weekOprStime}}~{{weekOprEtime}}{{/weekOprStime}}{{^weekOprStime}}정보없음{{/weekOprStime}}</td>
-            <td style="vertical-align: middle;">{{#closeDay}}{{closeDay}}{{/closeDay}}{{^closeDay}}정보없음{{/closeDay}}</td>
-            <td style="vertical-align: middle;">{{#careTel}}{{careTel}}{{/careTel}}{{^careTel}}정보없음{{/careTel}}</td>
+            <td style="vertical-align: middle;">{{#closeDay}}{{closeDay}}{{/closeDay}}{{^closeDay}}0{{/closeDay}}</td>
+            <td style="vertical-align: middle;">{{#careTel}}{{careTel}}{{/careTel}}{{^careTel}}***********{{/careTel}}</td>
             <td style="vertical-align: middle;">{{#saveTrgtAnimal}}{{saveTrgtAnimal}}{{/saveTrgtAnimal}}{{^saveTrgtAnimal}}정보없음{{/saveTrgtAnimal}}</td>
           </div>
-          {{/shelterlistPage.content}}
         </tr>
+        {{/shelterlistPage.content}}
       </tbody>
     </table>
   </div>

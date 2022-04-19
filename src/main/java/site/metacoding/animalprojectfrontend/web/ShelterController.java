@@ -29,7 +29,7 @@ public class ShelterController {
 
     @GetMapping("/animal/shelterList")
     public String list(Model model) {
-        PageRequest pr = PageRequest.of(0, 1);
+        PageRequest pr = PageRequest.of(0, 1000);
         Page<ShelterDe> sheltersEntity = shelterDeService.전체보기(pr);
 
         model.addAttribute("shelterlistPage", sheltersEntity);
