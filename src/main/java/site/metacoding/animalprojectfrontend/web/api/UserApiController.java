@@ -13,7 +13,6 @@ import site.metacoding.animalprojectfrontend.service.UserService;
 import site.metacoding.animalprojectfrontend.web.api.dto.ResponseDto;
 import site.metacoding.animalprojectfrontend.web.api.dto.user.JoinDto;
 import site.metacoding.animalprojectfrontend.web.api.dto.user.LoginDto;
-import site.metacoding.animalprojectfrontend.web.api.dto.user.ShelterDto;
 
 @RequiredArgsConstructor
 @RestController
@@ -40,9 +39,4 @@ public class UserApiController {
         return new ResponseDto<String>(1, "로그인성공", null);
     }
 
-    @PostMapping("/animal/shelter")
-    public String shelter(ShelterDto shelterDto) {
-        userService.쉘터(shelterDto);
-        return "/animal/shelter";
-    }
 }
