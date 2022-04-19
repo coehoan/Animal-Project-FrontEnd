@@ -3,15 +3,14 @@ package site.metacoding.animalprojectfrontend.web;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import lombok.RequiredArgsConstructor;
-import site.metacoding.animalprojectfrontend.service.UserService;
 
 @RequiredArgsConstructor
 @Controller
 public class UserController {
-    private final UserService userService;
     private final HttpSession session;
 
     @GetMapping("/logout")
@@ -31,9 +30,9 @@ public class UserController {
     }
 
     // 보호소 정보
-    @GetMapping("/animal/shelterList")
-    public String shelterList() {
-        return "/animal/shelterList";
-    }
+    // @GetMapping("/animal/shelterList")
+    // public String shelterList(Model model) {
+    // return null;
+    // }
 
 }

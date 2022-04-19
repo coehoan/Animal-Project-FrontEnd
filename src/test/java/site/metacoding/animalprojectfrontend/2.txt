@@ -19,6 +19,24 @@ private String saveTrgtAnimal ;
 
  
 
+{{id}}
+{{orgNm}}
+{{careNm}}
+{{jibunAddr}}
+{{weekOprStime}}
+{{closeDay}}
+{{careTel}}
+{{saveTrgtAnimal}}
+
+{{#id}}{{id}}{{/id}}{{^id}}정보없음{{/id}}
+{{#orgNm}}{{orgNm}}{{/orgNm}}{{^orgNm}}정보없음{{/orgNm}}
+{{#careNm}}{{careNm}}{{/careNm}}{{^careNm}}정보없음{{/careNm}}
+{{#jibunAddr}}{{jibunAddr}}{{/jibunAddr}}{{^jibunAddr}}정보없음{{/jibunAddr}}
+{{#weekOprStime}}{{weekOprStime}}~{{weekOprEtime}}{{/weekOprStime}}{{^weekOprStime}}정보없음{{/weekOprStime}}
+{{#closeDay}}{{closeDay}}{{/closeDay}}{{^closeDay}}정보없음{{/closeDay}}
+{{#careTel}}{{careTel}}{{/careTel}}{{^careTel}}정보없음{{/careTel}}
+{{#saveTrgtAnimal}}{{saveTrgtAnimal}}{{/saveTrgtAnimal}}{{^saveTrgtAnimal}}정보없음{{/saveTrgtAnimal}}
+
 id
 orgNm
 careNm
@@ -27,3 +45,25 @@ weekOprStime
 closeDay
 careTel
 saveTrgtAnimal 
+
+
+id
+orgNm
+careNm
+jibunAddr
+weekOprStime
+closeDay
+careTel
+saveTrgtAnimal 
+
+
+id
+orgNm
+careNm
+jibunAddr
+weekOprStime
+closeDay
+careTel
+saveTrgtAnimal 
+
+
