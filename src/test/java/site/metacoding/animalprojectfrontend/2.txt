@@ -1,9 +1,29 @@
 
-           id}}{{id}}{{/id}}{{^id}}none{{/id}} </th>
-            orgNm}}{{orgNm}}{{/orgNm}}{{^orgNm}}none{{/orgNm}}</td>
-            careNm}}{{careNm}}{{/careNm}}{{^careNm}}none{{/careNm}}</td>
-            jibunAddr}}{{jibunAddr}}{{/jibunAddr}}{{^jibunAddr}}none{{/jibunAddr}}</td>
-            weekOprStime}}{{weekOprStime}}~{{weekOprEtime}} {{/weekOprStime}}{{^weekOprStime}}none{{/weekOprStime}}</td>
-            closeDay}}{{closeDay}}{{/closeDay}}{{^closeDay}}none{{/closeDay}}</td>
-            careTel}}{{careTel}}{{/careTel}}{{^careTel}}none{{/careTel}}</td>
-            saveTrgtAnimal}}{{saveTrgtAnimal}}{{/saveTrgtAnimal}}{{^saveTrgtAnimal}}none{{/saveTrgtAnimal}}</td>
+private Integer id;
+private String orgNm;
+private String careNm;
+private String jibunAddr;
+private String weekOprStime;
+private String closeDay;
+private String careTel;
+private String saveTrgtAnimal ;
+
+@Param("id") Integer id,
+@Param("orgnm") String orgNm,
+@Param("carenm") String careNm,
+@Param("jibunnm") String jibunAddr,
+@Param("weekoprstime") String weekOprStime,
+@Param("weekopretime") String closeDay,
+@Param("caretel") String careTel,
+@Param("savetrgtanimal") String saveTrgtAnimal;
+
+ 
+
+id
+orgNm
+careNm
+jibunAddr
+weekOprStime
+closeDay
+careTel
+saveTrgtAnimal 

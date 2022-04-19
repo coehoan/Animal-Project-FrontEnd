@@ -2,10 +2,12 @@ package site.metacoding.animalprojectfrontend.web;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import lombok.RequiredArgsConstructor;
+import site.metacoding.animalprojectfrontend.domain.shelter.Shelter;
 import site.metacoding.animalprojectfrontend.service.UserService;
 
 @RequiredArgsConstructor
@@ -35,5 +37,5 @@ public class UserController {
     public String shelterList() {
         return "/animal/shelterList";
     }
-    // 보호소 정보 끝
+
 }
