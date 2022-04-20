@@ -1,4 +1,4 @@
-package site.metacoding.animalprojectfrontend.domain.user.shelterde;
+package site.metacoding.animalprojectfrontend.domain.shelterde;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

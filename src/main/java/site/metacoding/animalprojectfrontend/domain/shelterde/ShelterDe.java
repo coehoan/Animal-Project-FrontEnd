@@ -1,4 +1,4 @@
-package site.metacoding.animalprojectfrontend.domain.user.shelterde;
+package site.metacoding.animalprojectfrontend.domain.shelterde;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,6 +25,11 @@ public class ShelterDe { // DB에 테이블 ShelterDe로 인서트 됨. 이름 �
     private String saveTrgtAnimal;
     private String careAddr;
     private String jibunAddr;
+
+    private String lat;
+    private String lng;
+    private String dsignationDate;
+
     private String weekOprEtime;
     private String weekOprStime;
     private String weekCellEtime;
@@ -36,17 +41,13 @@ public class ShelterDe { // DB에 테이블 ShelterDe로 인서트 됨. 이름 �
     private String closeDay;
     private String careTel;
 
+    private String medicalCnt;
+    private String quarabtineCnt;
+    private String feedCnt;
+    private String transCarCnt;
+    private String dataStdDt;
+    private Integer vetPersonCnt;
+    private Integer specsPersonCnt;
+    private Integer breedCnt;
+    private Integer rnum;
 }
-// private String lat;
-// private String lng;
-// private String dsignationDate;
-
-// private String medicalCnt;
-// private String quarabtineCnt;
-// private String feedCnt;
-// private String transCarCnt;
-// private String dataStdDt;
-// private Integer vetPersonCnt;
-// private Integer specsPersonCnt;
-// private Integer breedCnt;
-// private Integer rnum;
