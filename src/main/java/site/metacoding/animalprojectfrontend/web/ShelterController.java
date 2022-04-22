@@ -7,14 +7,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.animalprojectfrontend.domain.shelterde.ShelterDe;
 import site.metacoding.animalprojectfrontend.domain.shelterde.ShelterDeRepository;
 import site.metacoding.animalprojectfrontend.service.api.ShelterDeService;
-import site.metacoding.animalprojectfrontend.web.api.dto.shelterde.Item;
 
 @RequiredArgsConstructor
 @Controller
