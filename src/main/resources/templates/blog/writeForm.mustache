@@ -13,39 +13,39 @@
     <div id="category-region" class="m_div_display_none">
       <select class="m_blog_writeForm_select" onchange="regionSelect(this.value)">
         <option selected disabled>지역</option>
-        <option value="seoul">서울</option>
-        <option value="gyeonggi">경기</option>
-        <option value="incheon">인천</option>
-        <option value="gangwon">강원</option>
-        <option value="sejong">세종</option>
-        <option value="chungbuk">충북</option>
-        <option value="chungnam">충남</option>
-        <option value="daejeon">대전</option>
-        <option value="jeonbuk">전북</option>
-        <option value="jeonnam">전남</option>
-        <option value="gwangju">광주</option>
-        <option value="gyeongbuk">경북</option>
-        <option value="daegu">대구</option>
-        <option value="gyeongnam">경남</option>
-        <option value="ulsan">울산</option>
-        <option value="busan">부산</option>
-        <option value="jeju">제주</option>
+        <option value="서울">서울</option>
+        <option value="경기">경기</option>
+        <option value="인천">인천</option>
+        <option value="강원">강원</option>
+        <option value="세종">세종</option>
+        <option value="충북">충북</option>
+        <option value="충남">충남</option>
+        <option value="대전">대전</option>
+        <option value="전북">전북</option>
+        <option value="전남">전남</option>
+        <option value="광주">광주</option>
+        <option value="경북">경북</option>
+        <option value="대구">대구</option>
+        <option value="경남">경남</option>
+        <option value="울산">울산</option>
+        <option value="부산">부산</option>
+        <option value="제주">제주</option>
       </select>
     </div>
     <div id="category-type" class="m_div_display_none">
       <select class="m_blog_writeForm_select" onchange="typeSelect(this.value)">
         <option selected disabled>품종</option>
-        <option value="dog">강아지</option>
-        <option value="cat">고양이</option>
-        <option value="etc">기타</option>
+        <option value="강아지">강아지</option>
+        <option value="고양이">고양이</option>
+        <option value="기타">기타</option>
       </select>
     </div>
     <div id="category-category" class="m_div_display_none">
       <select class="m_blog_writeForm_select" onchange="categorySelect(this.value)">
         <option selected disabled>분류</option>
-        <option value="ask">질문</option>
-        <option value="info">정보</option>
-        <option value="food">맛집</option>
+        <option value="질문">질문</option>
+        <option value="정보">정보</option>
+        <option value="맛집">맛집</option>
       </select>
     </div>
   </div>
@@ -80,22 +80,18 @@
     previewStyle: 'vertical'
   });
   editor.getMarkdown();
-
   let selectedBoard;
   let selectedRegion;
   let selectedType; // 품종
   let selectedCategory;
-
   // 게시판 선택
   function boardSelect(value) {
-
     if (value == "adopt") {
       $("#category-region").removeClass("m_div_display_none");
       $("#category-type").removeClass("m_div_display_none");
       $("#category-category").addClass("m_div_display_none");
       selectedBoard = value;
       selectedCategory = null;
-
     } else if (value == "region") {
       $("#category-region").removeClass("m_div_display_none");
       $("#category-type").addClass("m_div_display_none");
@@ -124,13 +120,11 @@
   function categorySelect(value) {
     selectedCategory = value;
   }
-
   // 글쓰기 버튼 클릭
   $("#btn-write").click(() => {
     let value = $("#board-select").val();
     let title = $("#title").val().trim();
     let content = editor.getHTML().trim();
-
     if (value == "adopt" && (selectedRegion == null || selectedType == null)) alert("지역과 품종을 선택해주세요.");
     else if (value == "region" && (selectedRegion == null || selectedCategory == null)) alert("지역과 분류를 선택해주세요.");
     else if (value == null) alert("게시판이 선택되지 않았습니다.");
@@ -138,7 +132,6 @@
     else if (content === "<p><br></p>") alert("내용을 입력하세요.");
     else write();
   })
-
   async function write() {
     let writeDto = {
       title: $("#title").val(),
@@ -148,7 +141,6 @@
       type: selectedType,
       category: selectedCategory
     }
-
     let response = await fetch("/s/blog/write", {
       method: "POST",
       body: JSON.stringify(writeDto),
@@ -156,9 +148,7 @@
         "Content-Type": "application/json; charset=utf-8"
       }
     });
-
     let responseParse = await response.json();
-
     if (responseParse.code == 1) {
       alert("글쓰기 완료");
       location.href = "/blog";
