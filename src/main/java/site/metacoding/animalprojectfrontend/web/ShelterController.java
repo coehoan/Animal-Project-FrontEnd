@@ -7,22 +7,25 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.animalprojectfrontend.domain.shelterde.ShelterDe;
-import site.metacoding.animalprojectfrontend.service.ShelterDeService;
+import site.metacoding.animalprojectfrontend.domain.shelterde.ShelterDeRepository;
+import site.metacoding.animalprojectfrontend.service.api.ShelterDeService;
+import site.metacoding.animalprojectfrontend.web.api.dto.shelterde.Item;
 
 @RequiredArgsConstructor
 @Controller
 public class ShelterController {
     private final ShelterDeService shelterDeService;
+    private final ShelterDeRepository shelterDeRepository;
 
     @GetMapping("/shelter/init-data")
     public @ResponseBody List<ShelterDe> initData(ShelterDe shelterDto, Model model) {
 
         List<ShelterDe> sheltersEntity = shelterDeService.다운로드(shelterDto);
-
         return sheltersEntity;
 
     }
@@ -31,9 +34,7 @@ public class ShelterController {
     public String list(Model model) {
         PageRequest pr = PageRequest.of(0, 1000);
         Page<ShelterDe> sheltersEntity = shelterDeService.전체보기(pr);
-
         model.addAttribute("shelterlistPage", sheltersEntity);
-
         return "/animal/shelterList";
     }
 
@@ -44,4 +45,5 @@ public class ShelterController {
 
         return sheltersEntity;
     }
+
 }

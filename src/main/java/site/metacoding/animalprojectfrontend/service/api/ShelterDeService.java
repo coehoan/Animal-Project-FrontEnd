@@ -1,4 +1,4 @@
-package site.metacoding.animalprojectfrontend.service;
+package site.metacoding.animalprojectfrontend.service.api;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -28,6 +28,7 @@ public class ShelterDeService {
 
     @Transactional
     public List<ShelterDe> 다운로드(ShelterDe shelterDto) {
+
         List<ShelterDe> lists = new ArrayList<>();
 
         try {
@@ -111,4 +112,5 @@ public class ShelterDeService {
         }
         return null;
     }
+
 }

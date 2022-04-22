@@ -1,14 +1,11 @@
 package site.metacoding.animalprojectfrontend;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
-import site.metacoding.animalprojectfrontend.domain.post.PostRepository;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Controller
 public class AnimalController {
 
@@ -40,6 +37,11 @@ public class AnimalController {
     @GetMapping("/blog/writeForm")
     public String writeForm() {
         return "/blog/writeForm";
+    }
+
+    @GetMapping("/blog/adoptboard/post/1")
+    public String adoptboardPost() {
+        return "/blog/post/adoptPost";
     }
 
     @GetMapping("/blog/regionboard/post/1")
