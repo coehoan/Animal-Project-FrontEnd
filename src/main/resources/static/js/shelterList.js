@@ -1,40 +1,11 @@
-    // 지도 초기값
-    let map = new naver.maps.Map('map', {
-      center: new naver.maps.LatLng(37.3595704, 127.105399),
-      zoom: 13
-    });
-    // 마커 초기값
-    let marker = new naver.maps.Marker({
-      map: map,
-      position: new naver.maps.LatLng(37.3595704, 127.105399)
-    });
-    // 전체검색
-    function addrSearch() {
-      let addr = $("#search-input").val();
-      naver.maps.Service.geocode({
-        address: addr
-      }, function (status, response) {
-        if (status !== naver.maps.Service.Status.OK) {
-          return alert('Something wrong!');
-        }
-        let responseParse = response.result; // 검색 결과의 배열
-        console.log(responseParse);
-        let x = responseParse.items[0].point.x;
-        let y = responseParse.items[0].point.y;
-        let point = new naver.maps.Point(x, y);
-        map.setCenter(point);
-        
-        let marker = new naver.maps.Marker({
-            map: map,
-            position: new naver.maps.LatLng(point)
-          });
-          console.log(arry[i][0]);
-          // 지도 이동
-          map.setCenter(arry[0]);
-      });
-    }
-
-function RegionOptionChange() {
+let selectedSido;
+function sidoSelected(value) {
+    selectedSido = value;
+}
+function orgNmSelected(value) {
+    selectedSigungu = value;
+}
+function orgNmSelect() {
 
     // 시군구들 옵션에 넣을 값
     let seoulSigungu = ["서울특별시 관악구", "서울특별시 광진구", "서울특별시 구로구", "서울특별시 금천구", "서울특별시 노원구", "서울특별시 도봉구", "서울특별시 동대문구", "서울특별시 동작구", "서울특별시 마포구", "서울특별시 서대문구", "서울특별시 서초구", "서울특별시 성동구", "서울특별시 성북구", "서울특별시 송파구", "서울특별시 양천구", "서울특별시 영등포구", "서울특별시 용산구", "서울특별시 은평구", "서울특별시 종로구", "서울특별시 중구", "서울특별시 중랑구"];
@@ -54,4 +25,90 @@ function RegionOptionChange() {
     let gyeongsangSigungu = ["경상남도 거제시", "경상남도 거창군", "경상남도 경상남도", "경상남도 고성군", "경상남도 김해시", "경상남도 남해군", "경상남도 밀양시", "경상남도 사천시", "경상남도 산청군", "경상남도 양산시", "경상남도 의령군", "경상남도 진주시", "경상남도 창녕군", "경상남도 창원 마산합포회원구", "경상남도 창원 의창성산구", "경상남도 창원 진해구", "경상남도 통영시", "경상남도 하동군", "경상남도 함안군", "경상남도 함양군", "경상남도 합천군"];
     let jejuSigungu = ["제주특별자치도 서귀포시", "제주특별자치도 제주시", "제주특별자치도"];
 
-}
+    // 시도 값
+    let sido = $("#sido").val();
+    console.log(sido);
+    // 시군구 변수에 값을 넣음
+    let sigungu;
+
+    // 시도에 따라서 시군구 값 넣기
+    if (sido == "서울특별시") {
+        sigungu = seoulSigungu;
+    } else if (sido == "부산광역시") {
+        sigungu = busanSigungu;
+    } else if (sido == "대구광역시") {
+        sigungu = deaguSigungu;
+    } else if (sido == "인천광역시") {
+        sigungu = incheonSigungu;
+    } else if (sido == "광주광역시") {
+        sigungu = gwangjuSigungu;
+    } else if (sido == "대구광역시") {
+        sigungu = deaguSigungu;
+    } else if (sido == "울산광역시") {
+        sigungu = ulsanSigungu;
+    } else if (sido == "경기도") {
+        sigungu = gyeongiSigungu;
+    } else if (sido == "강원도") {
+        sigungu = gangwonSigungu;
+    } else if (sido == "충청북도") {
+        sigungu = choongbookSigungu;
+    } else if (sido == "충청남도") {
+        sigungu = choongnamSigungu;
+    } else if (sido == "전라남도") {
+        sigungu = jeonamSigungu;
+    } else if (sido == "전라북도") {
+        sigungu = jeonbookSigungu;
+    } else if (sido == "경상남도") {
+        sigungu = gyeongsangSigungu;
+    } else if (sido == "경상북도") {
+        sigungu = gyeongbookSigungu;
+    } else if (sido == "제주특별자치도") {
+        sigungu = jejuSigungu;
+    } else {
+        sigungu = [];
+    }
+
+    $("#sigungu").empty(); // 시군구가 비어있으면
+    $("#sigungu").append('<option></option>'); // 옵션 추가
+    for (let i = 0; i < sigungu.length; i++) {
+        $("#sigungu").append('<option>' + sigungu[i] + '</option>');
+    }
+
+};
+
+      // 지도 초기값
+      let map = new naver.maps.Map('map', {
+        center: new naver.maps.LatLng(37.3595704, 127.105399),
+        zoom: 13
+      });
+    
+      // 마커 초기값
+      let marker = new naver.maps.Marker({
+        map: map,
+        position: new naver.maps.LatLng(37.3595704, 127.105399)
+      });
+    
+      // 전체검색
+      function addrSearch() {
+        let addr = $("#search-input").val();
+        naver.maps.Service.geocode({
+          address: addr
+        }, function (status, response) {
+          if (status !== naver.maps.Service.Status.OK) {
+            return alert('Something wrong!');
+          }
+    
+          let responseParse = response.result; // 검색 결과의 배열
+          console.log(responseParse);
+    
+          let x = responseParse.items[0].point.x;
+          let y = responseParse.items[0].point.y;
+    
+          let point = new naver.maps.Point(x, y);
+    
+          map.setCenter(point);
+          marker.setPosition(point);
+    
+        });
+      }
+    
