@@ -5,10 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-
-import org.qlrm.mapper.JpaResultMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -22,7 +18,6 @@ import site.metacoding.animalprojectfrontend.domain.animals.dto.ResponseDto;
 @Service
 public class AnimalsService {
 
-    private final EntityManager entityManager;
     private final AnimalsRepository animalsRepository;
 
     public List<Animals> 다운로드(Animals animals) {
@@ -115,16 +110,19 @@ public class AnimalsService {
     }
 
     // public List<Animals> 전체검색() {
-    //     List<Animals> findAllEntity = animalsRepository.findAll();
+    // List<Animals> findAllEntity = animalsRepository.findAll();
 
-    //     return findAllEntity;
+    // return findAllEntity;
     // }
 
-    public List<Animals> 전체검색(String keywordOfSido, String keywordOfSigungu, String keywordOfkind, String keywordOfkindOf,String keywordOfirstDate, String keywordOflastDate) {
+    public List<Animals> 전체검색(String keywordOfSido, String keywordOfSigungu, String keywordOfkind,
+            String keywordOfkindOf, String keywordOfirstDate, String keywordOflastDate) {
         System.out.println("쿼리스트링 받아졌나?" + keywordOfSido + keywordOfSigungu);
 
-        if (animalsRepository.keywordOfAll(keywordOfkind, keywordOfkindOf, keywordOfSido, keywordOfSigungu, keywordOfirstDate, keywordOflastDate) != null) {
-            List<Animals> findRegionEntity = animalsRepository.keywordOfAll(keywordOfkind, keywordOfkindOf, keywordOfSido, keywordOfSigungu, keywordOfirstDate, keywordOflastDate);
+        if (animalsRepository.keywordOfAll(keywordOfkind, keywordOfkindOf, keywordOfSido, keywordOfSigungu,
+                keywordOfirstDate, keywordOflastDate) != null) {
+            List<Animals> findRegionEntity = animalsRepository.keywordOfAll(keywordOfkind, keywordOfkindOf,
+                    keywordOfSido, keywordOfSigungu, keywordOfirstDate, keywordOflastDate);
             System.out.println("서비스 잘 되나?=======" + findRegionEntity);
             return findRegionEntity;
         } else {
@@ -217,5 +215,4 @@ public class AnimalsService {
 
     }
 
-    
 }
