@@ -29,11 +29,13 @@ public class ShelterController {
     }
 
     @GetMapping("/animal/shelterList")
-    public String list(Model model) {
+    public String list(Model model, Integer page) {
+
         PageRequest pr = PageRequest.of(0, 1000);
         Page<ShelterDe> sheltersEntity = shelterDeService.전체보기(pr);
         model.addAttribute("shelterlistPage", sheltersEntity);
         return "/animal/shelterList";
+
     }
 
     @GetMapping("/test/shelter")

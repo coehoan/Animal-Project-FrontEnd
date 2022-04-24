@@ -122,7 +122,7 @@ async function toRegion(selectedSido, selectedSigungu) { // 지역 검색
 async function toRegionSido(selectedSido) { // 지역 시도 검색
 
     if ($("#sido").val() !== null) {
-        let response = await fetch(`/search/shelters/shelters-sido?sido=${selectedSido}`);
+        let response = await fetch(`/search/animals/shelters-sido?sido=${selectedSido}`);
         console.log(selectedSido);
         console.log(response);
 
@@ -144,7 +144,7 @@ async function toRegionSido(selectedSido) { // 지역 시도 검색
 async function toKindOnly(selectedKind) { // 품종 검색
 
     if ($("#kind").val() != null) {
-        let response = await fetch(`/search/shelters/kind?kind=${selectedKind}`);
+        let response = await fetch(`/search/animals/kind?kind=${selectedKind}`);
         console.log(selectedKind);
         console.log(response);
 
@@ -171,23 +171,29 @@ function kindRender(kindList) {
                <td id="detail-addr" style="vertical-align: middle;">${shelterlistPage.careAddr}</td>
                 <td style="vertical-align: middle;">${shelterlistPage.weekOprStime}~${shelterlistPage.weekOprStime}</td>
                 <td style="vertical-align: middle;">${shelterlistPage.closeDay}</td>
-                <td style="vertical-align: middle;">${shelterlistPage.careTel}</td>
-                <td style="vertical-align: middle;">${shelterlistPage.saveTrgtAnimal}</td>
+                <td style="vertical-align: middle;">
+                    ${shelterlistPage.processState}</td>
+                <td style="vertical-align: middle;" width="100">
+                    <button id="showDetail" class="m_button"">자세히</button>
+                </td>
             </tr>`;
 }
 
 
 function regionRender(regionList) {
     console.log(regionList.id);
-       return `<tr>
+    return `<tr>
                 <th scope="row" style="vertical-align: middle;">${shelterlistPage.id}</th>
                 <td style="vertical-align: middle;">${shelterlistPage.orgNm}</td>
                 <td style="vertical-align: middle;">${shelterlistPage.careNm}</td>
                <td id="detail-addr" style="vertical-align: middle;">${shelterlistPage.careAddr}</td>
                 <td style="vertical-align: middle;">${shelterlistPage.weekOprStime}~${shelterlistPage.weekOprStime}</td>
                 <td style="vertical-align: middle;">${shelterlistPage.closeDay}</td>
-                <td style="vertical-align: middle;">${shelterlistPage.careTel}</td>
-                <td style="vertical-align: middle;">${shelterlistPage.saveTrgtAnimal}</td>
+                <td style="vertical-align: middle;">
+                    ${shelterlistPage.processState}</td>
+                <td style="vertical-align: middle;" width="100">
+                    <button id="showDetail" class="m_button"">자세히</button>
+                </td>
             </tr>`;
 }
 
@@ -225,47 +231,5 @@ function regionRender(regionList) {
           marker.setPosition(point);
     
         });
-      }
-    
-      // 상세검색 전체결과 지도에 표시
-function detailSearch() {
-              let addr = $("#detail-addr").text();
-              let arry = new Array();
-              let addrList = new Array();
-              addrList.push(addr);
-        // 기존 마커 초기화
-        marker.setMap(null);
-        for (let i = 0; i < addrList.length; i++) {
-          //alert(addrList[i]);
-          naver.maps.Service.geocode({
-            query: addrList[i]
-          }, function (status, response) {
-            if (status != naver.maps.Service.Status.OK) {
-              return alert('Something wrong!');
-            }
-    
-            // 검색 결과의 배열
-            let responseParse = response.v2.addresses;
-    
-            // 주소를 좌표로 변환시킨값을 x, y로 잡아줌
-            let x = responseParse[0].x;
-            let y = responseParse[0].y;
-    
-            // x,y 좌표를 point로 담고 배열에 push
-            let point = new naver.maps.Point(x, y);
-            arry.unshift([x, y]);
-    
-            // 마커 생성
-            let marker = new naver.maps.Marker({
-              map: map,
-              position: new naver.maps.LatLng(point)
-            });
-    
-    
-            console.log(arry[i][0]);
-            // 지도 이동
-            map.setCenter(arry[0]);
-          });
-        }
       }
     
