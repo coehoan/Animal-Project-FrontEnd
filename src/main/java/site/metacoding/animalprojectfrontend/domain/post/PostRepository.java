@@ -32,9 +32,23 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
     Page<Post> findByBoardAndRegionANDType(@Param("board") String board, @Param("region") String region,
             @Param("type") String type, Pageable page);
 
+<<<<<<< HEAD
     @Query(value = "SELECT * FROM post WHERE board =:board AND title LIKE %:query%", nativeQuery = true)
     Page<Post> findByBoardSearchByTitle(@Param("board") String board,
             @Param("query") String query, Pageable page);
+=======
+        @Query(value = "SELECT * FROM post WHERE board =:board AND category =:category ORDER BY id DESC", nativeQuery = true)
+        Page<Post> findByBoardAndCategory(@Param("board") String board, @Param("category") String category,
+                        Pageable page);
+
+        @Query(value = "SELECT * FROM post WHERE board =:board AND region =:region AND category =:category ORDER BY id DESC", nativeQuery = true)
+        Page<Post> findByBoardAndRegionANDCategory(@Param("board") String board, @Param("region") String region,
+                        @Param("category") String category, Pageable page);
+
+        @Query(value = "SELECT * FROM post WHERE board =:board AND title LIKE %:query%", nativeQuery = true)
+        Page<Post> findByBoardSearchByTitle(@Param("board") String board,
+                        @Param("query") String query, Pageable page);
+>>>>>>> ca1c6deebe023ccb7c21e59fe16fffa31943abce
 
     @Query(value = "SELECT * FROM post WHERE board =:board AND content LIKE %:query%", nativeQuery = true)
     Page<Post> findByBoardSearchByContent(@Param("board") String board,
