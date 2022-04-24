@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.animalprojectfrontend.domain.shelterde.ShelterDe;
 import site.metacoding.animalprojectfrontend.domain.shelterde.ShelterDeRepository;
-import site.metacoding.animalprojectfrontend.web.api.dto.shelterde.ShelterDeResponseDto;
+import site.metacoding.animalprojectfrontend.domain.shelterde.shelterde.ShelterDeResponseDto;
 
 @RequiredArgsConstructor
 @Service

@@ -10,14 +10,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class PostRegionDto {
-    
+
     private String sido;
     private String sigungu;
 
     public PostRegionDto toEntity(PostRegionDto keywordOfSido) {
         PostRegionDto region = PostRegionDto.builder()
-        .sido(this.sido)
-        .build();
+                .sido(this.sido)
+                .build();
 
         return region;
     }
