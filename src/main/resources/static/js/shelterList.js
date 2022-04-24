@@ -227,3 +227,45 @@ function regionRender(regionList) {
         });
       }
     
+      // 상세검색 전체결과 지도에 표시
+function detailSearch() {
+              let addr = $("#detail-addr").text();
+              let arry = new Array();
+              let addrList = new Array();
+              addrList.push(addr);
+        // 기존 마커 초기화
+        marker.setMap(null);
+        for (let i = 0; i < addrList.length; i++) {
+          //alert(addrList[i]);
+          naver.maps.Service.geocode({
+            query: addrList[i]
+          }, function (status, response) {
+            if (status != naver.maps.Service.Status.OK) {
+              return alert('Something wrong!');
+            }
+    
+            // 검색 결과의 배열
+            let responseParse = response.v2.addresses;
+    
+            // 주소를 좌표로 변환시킨값을 x, y로 잡아줌
+            let x = responseParse[0].x;
+            let y = responseParse[0].y;
+    
+            // x,y 좌표를 point로 담고 배열에 push
+            let point = new naver.maps.Point(x, y);
+            arry.unshift([x, y]);
+    
+            // 마커 생성
+            let marker = new naver.maps.Marker({
+              map: map,
+              position: new naver.maps.LatLng(point)
+            });
+    
+    
+            console.log(arry[i][0]);
+            // 지도 이동
+            map.setCenter(arry[0]);
+          });
+        }
+      }
+    
