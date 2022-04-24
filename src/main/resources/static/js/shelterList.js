@@ -122,7 +122,7 @@ async function toRegion(selectedSido, selectedSigungu) { // 지역 검색
 async function toRegionSido(selectedSido) { // 지역 시도 검색
 
     if ($("#sido").val() !== null) {
-        let response = await fetch(`/search/animals/shelters-sido?sido=${selectedSido}`);
+        let response = await fetch(`/search/shelters/shelters-sido?sido=${selectedSido}`);
         console.log(selectedSido);
         console.log(response);
 
@@ -144,7 +144,7 @@ async function toRegionSido(selectedSido) { // 지역 시도 검색
 async function toKindOnly(selectedKind) { // 품종 검색
 
     if ($("#kind").val() != null) {
-        let response = await fetch(`/search/animals/kind?kind=${selectedKind}`);
+        let response = await fetch(`/search/shelters/kind?kind=${selectedKind}`);
         console.log(selectedKind);
         console.log(response);
 
