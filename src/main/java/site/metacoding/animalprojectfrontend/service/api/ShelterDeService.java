@@ -1,4 +1,4 @@
-package site.metacoding.animalprojectfrontend.service;
+package site.metacoding.animalprojectfrontend.service.api;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.animalprojectfrontend.domain.shelterde.ShelterDe;
 import site.metacoding.animalprojectfrontend.domain.shelterde.ShelterDeRepository;
-import site.metacoding.animalprojectfrontend.web.api.dto.shelterde.ShelterDeResponseDto;
+import site.metacoding.animalprojectfrontend.domain.shelterde.shelterde.ShelterDeResponseDto;
 
 @RequiredArgsConstructor
 @Service
@@ -28,6 +28,7 @@ public class ShelterDeService {
 
     @Transactional
     public List<ShelterDe> 다운로드(ShelterDe shelterDto) {
+
         List<ShelterDe> lists = new ArrayList<>();
 
         try {
@@ -111,4 +112,5 @@ public class ShelterDeService {
         }
         return null;
     }
+
 }

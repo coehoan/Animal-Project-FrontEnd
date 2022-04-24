@@ -5,16 +5,12 @@ import java.util.List;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.animalprojectfrontend.domain.animals.Animals;
 import site.metacoding.animalprojectfrontend.service.api.AnimalsService;
-import site.metacoding.animalprojectfrontend.web.api.dto.animals.PostRegionDto;
 import site.metacoding.animalprojectfrontend.web.api.dto.animals.ResponseDto;
 
 @RequiredArgsConstructor
@@ -36,10 +32,12 @@ public class AnimalApiController {
             @RequestParam(name = "sigungu", required = true) String keywordOfSigungu, Model model) {
         System.out.println("타나?");
         System.out
-                .println("받은 쿼리스트링 ====" + keywordOfSido + keywordOfSigungu + keywordOfirstDate + keywordOflastDate + keywordOfkind + keywordOfkindOf);
+                .println("받은 쿼리스트링 ====" + keywordOfSido + keywordOfSigungu + keywordOfirstDate + keywordOflastDate
+                        + keywordOfkind + keywordOfkindOf);
 
         if (keywordOfSido != null) { // 쿼리스트링이 null이 아니면
-            List<Animals> getAllEntity = animalsService.전체검색(keywordOfSido, keywordOfSigungu, keywordOfkind, keywordOfkindOf, keywordOfirstDate, keywordOflastDate);
+            List<Animals> getAllEntity = animalsService.전체검색(keywordOfSido, keywordOfSigungu, keywordOfkind,
+                    keywordOfkindOf, keywordOfirstDate, keywordOflastDate);
 
             System.out.println("엔티티 컨트롤러에서 받았나?" + getAllEntity);
 

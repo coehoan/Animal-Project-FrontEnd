@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.animalprojectfrontend.domain.post.Post;
 import site.metacoding.animalprojectfrontend.domain.post.PostRepository;
-import site.metacoding.animalprojectfrontend.web.api.dto.post.UpdateDto;
 
 @RequiredArgsConstructor
 @Service

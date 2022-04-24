@@ -11,30 +11,31 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.animalprojectfrontend.domain.shelterde.ShelterDe;
-import site.metacoding.animalprojectfrontend.service.ShelterDeService;
+import site.metacoding.animalprojectfrontend.domain.shelterde.ShelterDeRepository;
+import site.metacoding.animalprojectfrontend.service.api.ShelterDeService;
 
 @RequiredArgsConstructor
 @Controller
 public class ShelterController {
     private final ShelterDeService shelterDeService;
+    private final ShelterDeRepository shelterDeRepository;
 
     @GetMapping("/shelter/init-data")
     public @ResponseBody List<ShelterDe> initData(ShelterDe shelterDto, Model model) {
 
         List<ShelterDe> sheltersEntity = shelterDeService.다운로드(shelterDto);
-
         return sheltersEntity;
 
     }
 
     @GetMapping("/animal/shelterList")
-    public String list(Model model) {
+    public String list(Model model, Integer page) {
+
         PageRequest pr = PageRequest.of(0, 1000);
         Page<ShelterDe> sheltersEntity = shelterDeService.전체보기(pr);
-
         model.addAttribute("shelterlistPage", sheltersEntity);
-
         return "/animal/shelterList";
+
     }
 
     @GetMapping("/test/shelter")
@@ -44,4 +45,5 @@ public class ShelterController {
 
         return sheltersEntity;
     }
+
 }

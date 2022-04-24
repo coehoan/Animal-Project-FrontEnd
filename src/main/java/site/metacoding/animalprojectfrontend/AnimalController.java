@@ -4,13 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import lombok.RequiredArgsConstructor;
-import site.metacoding.animalprojectfrontend.service.api.AnimalsService;
 
 @RequiredArgsConstructor
 @Controller
 public class AnimalController {
-
-    private final AnimalsService animalsService;
 
     @GetMapping("/")
     public String main() {
@@ -27,7 +24,7 @@ public class AnimalController {
     // return "/main/loginForm";
     // }
 
-    @GetMapping("/animal")
+    @GetMapping("/animal/animalList")
     public String animal() {
         return "/animal/animalList";
     }
@@ -36,6 +33,26 @@ public class AnimalController {
     // public String shelterList() {
     // return "/animal/shelterList";
     // }
+
+    @GetMapping("/blog/writeForm")
+    public String writeForm() {
+        return "/blog/writeForm";
+    }
+
+    @GetMapping("/blog/adoptboard/post/1")
+    public String adoptboardPost() {
+        return "/blog/post/adoptPost";
+    }
+
+    @GetMapping("/blog/regionboard/post/1")
+    public String regionboardPost() {
+        return "/blog/post/regionPost";
+    }
+
+    @GetMapping("/blog/freeboard/post/1")
+    public String freeboardPost() {
+        return "/blog/post/freePost";
+    }
 
     @GetMapping("/withus/doctor")
     public String withDoctor() {
@@ -46,5 +63,6 @@ public class AnimalController {
     public String kara() {
         return "/withus/kara";
     }
-    // ===================Post====================/
+    // ===================Post====================//
+
 }
